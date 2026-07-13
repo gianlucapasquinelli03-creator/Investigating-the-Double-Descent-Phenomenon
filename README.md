@@ -27,12 +27,10 @@ data from the Chilean branch of *Fondo de Cultura Económica*.
 - [The Three Models](#the-three-models)
 - [Dataset](#dataset)
 - [Repository Structure](#repository-structure)
-- [Setup](#setup)
-- [Running the Notebooks](#running-the-notebooks)
 - [Report and Slides](#report-and-slides)
 - [References](#references)
 - [Authors](#authors)
-- [License](#license)
+
 
 ---
 
@@ -139,49 +137,6 @@ denser sub-populations.
 └── README.md
 ```
 
-## Setup
-
-The project was developed across three environments (local, Google Colab, Kaggle). To run
-locally:
-
-```bash
-git clone https://github.com/<your-username>/double-descent-collaborative-filtering.git
-cd double-descent-collaborative-filtering
-
-python -m venv .venv
-source .venv/bin/activate          # Windows: .venv\Scripts\activate
-
-pip install -r requirements.txt
-```
-
-## Running the Notebooks
-
-The notebooks are meant to be run **in order**. They target different environments, noted
-below.
-
-| Notebook                        | Environment      | Notes |
-| ------------------------------- | ---------------- | ----- |
-| `01_build_interactions.ipynb`   | Local            | Reads raw `Sales_until_*.xlsx` / `Product.xlsx` exports and writes `interactions_real_long.csv`. |
-| `02_nmf.ipynb`                  | Google Colab     | Uses `drive.mount('/content/drive')`; adjust the data path to your Drive. |
-| `03_weighted_mf_ials.ipynb`     | Google Colab     | Same as above; uses the `implicit` library on CPU. |
-| `04_logistic_mf.ipynb`          | Kaggle (GPU)     | Requires a CUDA accelerator; reads the dataset from `/kaggle/input`. |
-
-**Adjusting the data path in notebook 01.** The pipeline notebook currently points to a
-local absolute directory. Before running it, set `PROJECT_DIR` (top of the second code
-cell) to your own location, e.g. a relative path inside the repo:
-
-```python
-from pathlib import Path
-
-PROJECT_DIR = Path("data")            # instead of the hardcoded absolute path
-RAW_DATA_DIR = PROJECT_DIR / "raw_data"
-PROCESSED_DATA_DIR = PROJECT_DIR / "processed_data_final"
-OUTPUT_FILE = PROCESSED_DATA_DIR / "interactions_real_long.csv"
-```
-
-For the Colab and Kaggle notebooks, update the data-loading path to wherever you place
-`interactions_real_long.csv` (a mounted Drive folder or an attached Kaggle dataset).
-
 ## Report and Slides
 
 - 📄 **Report:** [`report/SML_Report_DoubleDescent.pdf`](report/SML_Report_DoubleDescent.pdf)
@@ -197,14 +152,5 @@ For the Colab and Kaggle notebooks, update the data-loading path to wherever you
 
 ## Authors
 
-Group project for Statistical Machine Learning, Sapienza University of Rome (2025–2026):
+Denise Brancaleone · Matías Cerda · Marco Restuccia · Gianluca Pasquinelli
 
-- Gianluca Pasquinelli
-- Matías Caleb Cerda Barrera
-- Denise Brancaleone
-- Marco Restuccia
-
-## License
-
-Released under the [MIT License](LICENSE). The raw transaction data is not covered by this
-license and is not distributed.
