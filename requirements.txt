@@ -1,0 +1,23 @@
+# Core scientific stack
+numpy
+pandas
+scipy
+matplotlib
+seaborn
+
+# Reading raw Shopify .xlsx exports (notebook 01)
+openpyxl
+
+# Weighted MF / implicit ALS (notebook 03)
+implicit==0.7.3
+
+# Logistic MF (notebook 04) — install the build matching your CUDA setup.
+# On Kaggle/Colab, torch is preinstalled; see https://pytorch.org for local installs.
+torch
+
+# Notebook execution
+jupyter
+ipykernel
+
+# Note: google.colab (used in notebooks 02 and 03) is provided by the Colab
+# runtime and is not installable via pip. It is not needed to run locally.
