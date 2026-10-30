@@ -152,5 +152,5 @@ denser sub-populations.
 
 ## Authors
 
-Denise Brancaleone · Matías Cerda · Marco Restuccia · Gianluca Pasquinelli
+Denise Brancaleone · Matías Cerda · Gianluca Pasquinelli · Marco Restuccia
 
